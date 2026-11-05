@@ -2,12 +2,12 @@
 
 # Reinforcing End-to-End Autonomous Driving Safety via Negative-Aware Planning in a Unified World-Action Model
 
-**Zihao Zhang<sup>1,2</sup> · Xinyu Zhang<sup>3</sup> · Bing Zeng<sup>3</sup> · Xingyu Chen<sup>4</sup> · Zhenning Li<sup>5</sup> · Bin Yu<sup>6</sup> · Ziyuan Pu<sup>3</sup>**
+**Zihao Zhang<sup>1,2</sup> · Xinyu Zhang<sup>1</sup> · Bing Zeng<sup>1</sup> · Xingyu Chen<sup>3</sup> · Zhenning Li<sup>4</sup> · Bin Yu<sup>5</sup> · Ziyuan Pu<sup>1</sup>**
 
-<sub><sup>1</sup> School of Cyber Science and Engineering, Southeast University &nbsp;·&nbsp; <sup>2</sup> Shenzhen Loop Area Institute &nbsp;·&nbsp; <sup>3</sup> School of Transportation, Southeast University</sub>
+<sub><sup>1</sup> Southeast University &nbsp;·&nbsp; <sup>2</sup> Shenzhen Loop Area Institute</sub>
 <br>
-<sub><sup>4</sup> School of Mechanical Engineering, Guangxi University &nbsp;·&nbsp; <sup>5</sup> University of Macau &nbsp;·&nbsp; <sup>6</sup> School of Transportation Science and Engineering, Beihang University</sub>
-<br>
+<sub><sup>3</sup> Guangxi University &nbsp;·&nbsp; <sup>4</sup> University of Macau &nbsp;·&nbsp; <sup>5</sup> Beihang University</sub>
+
 </div>
 
 ---
