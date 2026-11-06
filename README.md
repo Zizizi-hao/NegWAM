@@ -37,7 +37,7 @@ We will open-source the code step by step:
 
 - [x] **Inference / evaluation code** — trajectory prediction & NAVSIM v2 evaluation scripts (`navtest` / `navhard two-stage`)
 - [x] **Data preparation scripts** — preprocessing for NAVSIM v2
-- [ ] **Pretrained checkpoints** — NegWAM weights for direct reproduction of reported results
+- [x] **Pretrained checkpoints** — NegWAM weights for direct reproduction of reported results
 - [ ] **Training code** — near-expert negative trajectory construction, repulsive-anchor flow-matching objective, and rider-token branch
 - [ ] **HUGSIM closed-loop evaluation** — zero-shot closed-loop simulation scripts
 
