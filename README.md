@@ -152,6 +152,18 @@ bash ./scripts/evaluation/navtest/run_negwam_navtest_evaluation_multi_gpu.sh
 
 We thank the authors of [NAVSIM](https://github.com/autonomousvision/navsim) and [HUGSIM](https://github.com/hyzhou-ryd/hugsim) for open-sourcing their benchmarks and evaluation tools, and the authors of [DriveWAM](https://github.com/chenshi3/DriveWAM), [BeyondDrive](https://github.com/wjl2244/BeyondDrive), and [GTRS](https://github.com/NVlabs/GTRS) for their open-source codebases, on which our implementation is built.
 
-## 📄 License
+## 📄 License  and Citation
 
 This project is licensed under the [Apache License 2.0](LICENSE).
+
+If you find this work useful, please cite:
+```bibtex
+@misc{zhang2026negwam,
+  title = {Reinforcing End-to-End Autonomous Driving Safety via Negative-Aware Planning in a Unified World-Action Model},
+  author = {Zihao Zhang and Xinyu Zhang and Bing Zeng and Xingyu Chen and Zhenning Li and Bin Yu and Ziyuan Pu},
+  year = {2026},
+  eprint = {2611.08111},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2611.08111}
+}
+```
