@@ -7,12 +7,19 @@
   <a href="https://huggingface.co/Zizizi-hao/NegWAM"><img src="https://img.shields.io/badge/HuggingFace-Model-orange?style=flat&amp;logo=huggingface" alt="Model &amp; Data on Hugging Face"></a>
 </p>
 
-**Zihao Zhang1,2 · Xinyu Zhang1 · Bing Zeng1 · Xingyu Chen3 · Zhenning Li4 · Bin Yu5 · Ziyuan Pu1**
-
-1 Southeast University  ·  2 Shenzhen Loop Area Institute
-  
-
-3 Guangxi University  ·  4 University of Macau  ·  5 Beihang University
+<p>
+  <strong>Zihao Zhang</strong><sup>1,2</sup> ·
+  <strong>Xinyu Zhang</strong><sup>1</sup> ·
+  <strong>Bing Zeng</strong><sup>1</sup> ·
+  <strong>Xingyu Chen</strong><sup>3</sup> ·
+  <strong>Zhenning Li</strong><sup>4</sup> ·
+  <strong>Bin Yu</strong><sup>5</sup> ·
+  <strong>Ziyuan Pu</strong><sup>1</sup>
+</p>
+<p>
+  <sup>1</sup> Southeast University &nbsp;·&nbsp; <sup>2</sup> Shenzhen Loop Area Institute<br>
+  <sup>3</sup> Guangxi University &nbsp;·&nbsp; <sup>4</sup> University of Macau &nbsp;·&nbsp; <sup>5</sup> Beihang University
+</p>
 
 
 
