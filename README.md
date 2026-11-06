@@ -13,7 +13,9 @@
 
 ---
 
-![](https://ik.imagekit.io/zizizihao/NegWAM/figure_02_methods.jpg)
+<p align="center">
+  <img src="https://ik.imagekit.io/zizizihao/NegWAM/figure_02_methods.jpg" width="95%">
+</p>
 
 World-action models (WAMs) jointly model future traffic states and driving actions for end-to-end autonomous driving in intelligent transportation systems. However, their action learning remains dominated by expert-trajectory imitation, leaving unsafe alternatives close to expert trajectories insufficiently constrained. To improve WAM robustness in safety-critical scenarios, we propose **NegWAM**, a safety post-training framework for unified WAMs that learns explicit safety boundaries from *near-expert failure trajectories*. NegWAM constructs negative trajectories that are geometrically close to the expert trajectory yet carry safety risks, uses them as repulsive anchors to steer predictions away from dangerous behavior, and encodes them as scene-conditioned *rider tokens* to learn scene–trajectory compatibility. During training, NegWAM jointly optimizes the flow-matching and near-expert negative objectives, while the auxiliary rider branch is discarded at inference, incurring **no additional overhead**. On NAVSIM v2, NegWAM achieves **40.4 EPDMS on navhard**, a **4.1% relative improvement** over the strongest compared scorer-free WAM baseline, and **93.3 EPDMS on navtest**. These results demonstrate that NegWAM achieves strong performance in safety-critical scenarios while preserving routine-driving performance. Zero-shot closed-loop evaluation on HUGSIM further demonstrates cross-benchmark generalization.
 
@@ -105,19 +107,34 @@ bash ./scripts/evaluation/navtest/run_negwam_navtest_evaluation_multi_gpu.sh
 
 ### Analysis
 
-![](https://ik.imagekit.io/zizizihao/NegWAM/rider_token.jpg)![](https://ik.imagekit.io/zizizihao/NegWAM/scene_trajectory_com.jpg)
+<p align="center">
+  <img src="https://ik.imagekit.io/zizizihao/NegWAM/rider_token.jpg" width="38%">
+  <img src="https://ik.imagekit.io/zizizihao/NegWAM/scene_trajectory_com.jpg" width="58%">
+</p>
 
 ## 🎬 Qualitative Results
 
 ### NAVSIM v2
 
-![](https://ik.imagekit.io/zizizihao/NegWAM/figure_03_qualitative.jpg)
+
+<p align="center">
+  <img src="https://ik.imagekit.io/zizizihao/NegWAM/figure_03_qualitative.jpg" width="95%">
+</p>
 
 ### HUGSIM Zero-shot Closed-loop Evaluation
 
-|                                                                                                             |                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| ![](https://ik.imagekit.io/zizizihao/NegWAM/hugsim_video_results_2.gif) Yielding to a left-side lane change | ![](https://ik.imagekit.io/zizizihao/NegWAM/hugsim_video_results1.gif) Avoiding the hard braking of the leading vehicle |
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://ik.imagekit.io/zizizihao/NegWAM/hugsim_video_results_2.gif" width="100%">
+      <br>Yielding to a left-side lane change
+    </td>
+    <td align="center">
+      <img src="https://ik.imagekit.io/zizizihao/NegWAM/hugsim_video_results1.gif" width="100%">
+      <br>Avoiding the hard braking of the leading vehicle
+    </td>
+  </tr>
+</table>
 
 ## 🙏 Acknowledgements
 
