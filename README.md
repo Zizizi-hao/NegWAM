@@ -2,6 +2,11 @@
 
 # Reinforcing End-to-End Autonomous Driving Safety via Negative-Aware Planning in a Unified World-Action Model
 
+<p align="center">
+  <a href="https://arxiv.org/abs/2611.08111"><img src="https://img.shields.io/badge/arXiv-2611.08111-red?style=flat&amp;logo=arxiv" alt="Paper on arXiv"></a>
+  <a href="https://huggingface.co/Zizizi-hao/NegWAM"><img src="https://img.shields.io/badge/HuggingFace-Model-orange?style=flat&amp;logo=huggingface" alt="Model &amp; Data on Hugging Face"></a>
+</p>
+
 **Zihao Zhang1,2 · Xinyu Zhang1 · Bing Zeng1 · Xingyu Chen3 · Zhenning Li4 · Bin Yu5 · Ziyuan Pu1**
 
 1 Southeast University  ·  2 Shenzhen Loop Area Institute
