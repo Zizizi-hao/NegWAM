@@ -1,0 +1,22 @@
+_target_: navsim.agents.drivewam_beyond_drive.drivewam_b_agent.DrivewamBAgent
+_convert_: 'all'
+
+trajectory_sampling:
+    _target_: nuplan.planning.simulation.trajectory.trajectory_sampling.TrajectorySampling
+    _convert_: 'all'
+    time_horizon: 4
+    interval_length: 0.5
+config:
+  _target_: navsim.agents.drivewam_beyond_drive.drivewam_b_config.DrivewamBConfig
+  _convert_: 'all'
+  latent: False
+  learning_rate: 2e-6
+  dataset_path: xxx/dataset/cache/feature_cache/navmini
+  negative_samples_path: xxx/third_party/BeyondDrive/negative_data/sample_step5_cfg0.5_noise0.4_proposal64/2026.01.07.03.26.47/negative_sample_results
+  submetric_index: -1
+  rde_loss_weight: 0.1
+  save_root: ${output_dir}
+  num_video_steps: 3
+  num_action_steps: 10
+  checkpoint_path: null
+checkpoint_path: ${.config.checkpoint_path}
