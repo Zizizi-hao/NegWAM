@@ -100,6 +100,13 @@ NegWAM
 │   │   ├── warmup_two_state/
 ```
 
+
+#### Evaluation Metric Cache
+
+The `navtest` metric cache used for the results in this release was generated in the official NAVSIM environment with `numpy==1.23.4`.
+
+A different metric cache can change the evaluation scores. See [NAVSIM issue #136](https://github.com/autonomousvision/navsim/issues/136).
+
 ### Evaluation
 
 
