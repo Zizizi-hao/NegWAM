@@ -25,11 +25,22 @@
 
 ---
 
+## NAVSIM v2 Evaluation Correction (2026-11-23)
+
+We re-evaluated NegWAM on `navhard` and `navtest` with regenerated metric caches after a NumPy version difference during cache generation was found to affect NAVSIM scores. [ViRA issue #5](https://github.com/OpenDriveLab/ViRA/issues/5#issuecomment-7000769272) · [NAVSIM issue #136](https://github.com/autonomousvision/navsim/issues/136)
+
+| NAVSIM v2 split | Originally reported EPDMS | Corrected EPDMS |
+| --- | ---: | ---: |
+| navhard | 40.4 | 36.3 |
+| navtest | 93.3 | 90.3 |
+
+The original scores and evaluation files are available in these archived versions. [arXiv v1](https://arxiv.org/abs/2611.08111v1) · [GitHub README](https://github.com/Zizizi-hao/NegWAM/blob/c7a7c334faac572370010815f19cb60dec9156a7/README.md) · [Hugging Face result files](https://huggingface.co/Zizizi-hao/NegWAM/commit/600a6697670f9f84737f4dbe9462863274b3b033)
+
 <p align="center">
   <img src="https://ik.imagekit.io/zizizihao/NegWAM/figure_02_methods.jpg" width="95%">
 </p>
 
-World-action models (WAMs) jointly model future traffic states and driving actions for end-to-end autonomous driving in intelligent transportation systems. However, their action learning remains dominated by expert-trajectory imitation, leaving unsafe alternatives close to expert trajectories insufficiently constrained. To improve WAM robustness in safety-critical scenarios, we propose **NegWAM**, a safety post-training framework for unified WAMs that learns explicit safety boundaries from *near-expert failure trajectories*. NegWAM constructs negative trajectories that are geometrically close to the expert trajectory yet carry safety risks, uses them as repulsive anchors to steer predictions away from dangerous behavior, and encodes them as scene-conditioned *rider tokens* to learn scene–trajectory compatibility. During training, NegWAM jointly optimizes the flow-matching and near-expert negative objectives, while the auxiliary rider branch is discarded at inference, incurring **no additional overhead**. On NAVSIM v2, NegWAM achieves **40.4 EPDMS on navhard**, a **4.1% relative improvement** over the strongest compared scorer-free WAM baseline, and **93.3 EPDMS on navtest**. These results demonstrate that NegWAM achieves strong performance in safety-critical scenarios while preserving routine-driving performance. Zero-shot closed-loop evaluation on HUGSIM further demonstrates cross-benchmark generalization.
+World-action models (WAMs) jointly model future traffic states and driving actions for end-to-end autonomous driving in intelligent transportation systems. However, their action learning remains dominated by expert-trajectory imitation, leaving unsafe alternatives close to expert trajectories insufficiently constrained. To improve WAM robustness in safety-critical scenarios, we propose **NegWAM**, a safety post-training framework for unified WAMs that learns explicit safety boundaries from *near-expert failure trajectories*. NegWAM constructs negative trajectories that are geometrically close to the expert trajectory yet carry safety risks, uses them as repulsive anchors to steer predictions away from dangerous behavior, and encodes them as scene-conditioned *rider tokens* to learn scene–trajectory compatibility. During training, NegWAM jointly optimizes the flow-matching and near-expert negative objectives, while the auxiliary rider branch is discarded at inference, incurring **no additional overhead**. On NAVSIM v2, NegWAM achieves **36.3 EPDMS on navhard**, a **7.3% relative improvement** over the pretrained WAM baseline, and **90.3 EPDMS on navtest**. Zero-shot closed-loop evaluation on HUGSIM further demonstrates cross-benchmark generalization.
 
 ## 🚀 Roadmap / Code Release
 
@@ -77,11 +88,11 @@ export NUPLAN_MAPS_ROOT="${OPENSCENE_DATA_ROOT}/maps"
 export NAVSIM_EXP_ROOT="${NAVSIM_DEVKIT_ROOT}/exp"
 ```
 
-Build the cache after the raw data is in place. Metric cache first, then negative trajectories, then features. Each script writes to `dataset/cache/` under the split name set inside the script (`navtrain` for training).
+Build the caches after the raw data is in place. The helper scripts below default to the training split (`navtrain`). Use the split-specific instructions below to prepare evaluation metric caches.
 
 ```shell
-bash ./scripts/cache_data/run_feature_caching.sh
 bash ./scripts/cache_data/run_metric_caching.sh
+bash ./scripts/cache_data/run_feature_caching.sh
 ```
 
 The overall structure of NegWAM:
@@ -103,12 +114,23 @@ NegWAM
 
 #### Evaluation Metric Cache
 
-The `navtest` metric cache used for the results in this release was generated in the official NAVSIM environment with `numpy==1.23.4`.
+The original `navtest` metric cache was generated with NumPy `1.23.4`. EPDMS can depend on the NumPy versions used for both cache generation and evaluation. The exact dependency versions for the corrected results are pending.
 
-A different metric cache can change the evaluation scores. See [NAVSIM issue #136](https://github.com/autonomousvision/navsim/issues/136).
+To generate caches in the layout expected by the evaluation scripts, run the commands below in your cache-generation environment. Use fresh output directories to keep caches from different environments separate.
+
+```shell
+python navsim/planning/script/run_metric_caching.py \
+  train_test_split=navhard_two_stage \
+  metric_cache_path="${OPENSCENE_DATA_ROOT}/cache/metric_cache/navhard_two_stage"
+
+python navsim/planning/script/run_metric_caching.py \
+  train_test_split=navtest \
+  metric_cache_path="${OPENSCENE_DATA_ROOT}/cache/metric_cache/navtest"
+```
 
 ### Evaluation
 
+Set the dataset and checkpoint paths in each evaluation script. Set `metric_cache_path` to the corresponding split's cache directory if it differs from the paths above.
 
 ```shell
 ### evaluation on navhard
@@ -121,8 +143,7 @@ bash ./scripts/evaluation/navtest/run_negwam_navtest_evaluation_multi_gpu.sh
 
 ### NAVSIM v2 — *navhard* Benchmark
 
-![](https://ik.imagekit.io/zizizihao/NegWAM/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202026-11-05%20202432.png)Put all data under `dataset/` and point `OPENSCENE_DATA_ROOT` at that directory. NAVSIM v2 supplies the raw logs, sensor blobs, maps, and the two-stage splits. The training and evaluation scripts read the cache directories produced from those files.
-
+![NAVSIM v2 navhard two-stage evaluation results](https://ik.imagekit.io/zizizihao/NegWAM/negwam_navhard.png)
 
 ### Analysis
 
