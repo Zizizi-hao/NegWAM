@@ -25,17 +25,6 @@
 
 ---
 
-## NAVSIM v2 Evaluation Correction (2026-11-23)
-
-We re-evaluated NegWAM on `navhard` and `navtest` with regenerated metric caches after a NumPy version difference during cache generation was found to affect NAVSIM scores. [ViRA issue #5](https://github.com/OpenDriveLab/ViRA/issues/5#issuecomment-7000769272) · [NAVSIM issue #136](https://github.com/autonomousvision/navsim/issues/136)
-
-| NAVSIM v2 split | Originally reported EPDMS | Corrected EPDMS |
-| --- | ---: | ---: |
-| navhard | 40.4 | 36.3 |
-| navtest | 93.3 | 90.3 |
-
-The original scores and evaluation files are available in these archived versions. [arXiv v1](https://arxiv.org/abs/2611.08111v1) · [GitHub README](https://github.com/Zizizi-hao/NegWAM/blob/c7a7c334faac572370010815f19cb60dec9156a7/README.md) · [Hugging Face result files](https://huggingface.co/Zizizi-hao/NegWAM/commit/600a6697670f9f84737f4dbe9462863274b3b033)
-
 <p align="center">
   <img src="https://ik.imagekit.io/zizizihao/NegWAM/figure_02_methods.jpg" width="95%">
 </p>
@@ -144,6 +133,17 @@ bash ./scripts/evaluation/navtest/run_negwam_navtest_evaluation_multi_gpu.sh
 ### NAVSIM v2 — *navhard* Benchmark
 
 ![NAVSIM v2 navhard two-stage evaluation results](https://ik.imagekit.io/zizizihao/NegWAM/negwam_navhard.png)
+
+### Update
+
+🔄 **2026-11-23 · NAVSIM v2 evaluation correction.** We re-evaluated NegWAM on `navhard` and `navtest` with regenerated metric caches after a NumPy version difference during cache generation was found to affect NAVSIM scores. [ViRA issue #5](https://github.com/OpenDriveLab/ViRA/issues/5#issuecomment-7000769272) · [NAVSIM issue #136](https://github.com/autonomousvision/navsim/issues/136)
+
+| NAVSIM v2 split | Originally reported EPDMS | Corrected EPDMS |
+| --- | ---: | ---: |
+| navhard | 40.4 | 36.3 |
+| navtest | 93.3 | 90.3 |
+
+The original scores and evaluation files are available in these archived versions. [arXiv v1](https://arxiv.org/abs/2611.08111v1) · [GitHub README](https://github.com/Zizizi-hao/NegWAM/blob/c7a7c334faac572370010815f19cb60dec9156a7/README.md) · [Hugging Face result files](https://huggingface.co/Zizizi-hao/NegWAM/commit/600a6697670f9f84737f4dbe9462863274b3b033)
 
 ### Analysis
 
