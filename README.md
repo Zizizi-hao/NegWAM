@@ -103,7 +103,7 @@ NegWAM
 
 #### Evaluation Metric Cache
 
-The original `navtest` metric cache was generated with NumPy `1.23.4`. EPDMS can depend on the NumPy versions used for both cache generation and evaluation. The exact dependency versions for the corrected results are pending.
+The corrected `navhard_two_stage` and `navtest` metric caches were generated with NumPy `1.26.4`. The original `navtest` metric cache was generated with NumPy `1.23.4`. EPDMS can depend on the NumPy versions used for both cache generation and evaluation. The evaluation dependency versions and exact NAVSIM revision for the corrected results are pending. [Corrected result files](https://huggingface.co/Zizizi-hao/NegWAM/commit/0492441c0c087871e3881ce38c17c4bfd7831a9d)
 
 To generate caches in the layout expected by the evaluation scripts, run the commands below in your cache-generation environment. Use fresh output directories to keep caches from different environments separate.
 
